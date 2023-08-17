@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import TitleContext from './components/TitleContext'
+import useFetch from './hooks/useFetch'
+import HomePage from './pages/HomePage'
+import PageLayout from './pages/PageLayout'
+import './App.scss'
 
-function App() {
+const App = () => {
+
+  const url = 'http://api.programator.sk/gallery'
+  const {data} = useFetch(url)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className ='app'>
+      <h1 className='app-header'>Fotogaléria</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route 
+            path='/'
+            element={<HomePage/>}
+          />
+          {data && data.galleries.map((oneElement) => {
+            const {path,image} = oneElement
+            return(
+                <Route 
+                  key={image.modified} 
+                  path={path} 
+                  element={
+                  <TitleContext.Provider value={path}>
+                    <PageLayout title={path}/>
+                  </TitleContext.Provider>
+                  }
+                />
+            )
+          })}
+        </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,0 +1,220 @@
+@import '../partials/variables.scss';
+@import '../partials/mixins.scss';
+
+.addphotoform-wrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.addphotoform-backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $black_c;
+}
+.addphotoform-bcg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 560px;
+    height: 499px;
+    background-color: $white_a;
+    border-radius: $border-radius_b;
+    box-shadow: $box-shadow_a;
+    text-align: center;
+}
+.addphotoform{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 560px;
+    height: 499px;
+    background-color: $white_a;
+    border-radius: $border-radius_b;
+    box-shadow: $box-shadow_a;
+    text-align: center;
+    @include fade-in-fast
+}
+
+.addphotoform-header-row{
+    @include bigerFont;
+    display: flex;
+    justify-content: space-between; 
+}
+.addphotoform-header{
+    margin: 40px 45px 15px;
+}
+.addphotoform-closer{
+    margin: 40px 45px 20px;
+    cursor: pointer;
+}
+.addphotoform-input-wraper{
+    width: 85%;
+    height: 280px;
+    box-sizing: border-box;
+    border: 1px dashed $white_c;
+    margin:0 auto;
+}
+.addphotoform-input-ico{
+    @include icoFont; 
+    margin: 48px 0 10px;
+}
+.addphotoform-wrapper-header{
+    @include mediumFont;
+    margin-bottom: 15px;
+}
+.addphotoform-wrapper-postheader,
+.addphotoform-wrapper-selected-photo,
+.addphotoform-wrapper-error{
+    @include mediumFont;
+    color: $black_c;
+}
+.addphotoform-wrapper-error{
+    color: $red_a;
+}
+.addphotoform-wrapper-button{
+    @include mediumFont;
+    width: 170px;
+    height: 48px;
+    color: $black_a;
+    background-color: $white_a;
+    border: 2px solid $black_a;
+    border-radius: $border-radius_a;
+    margin: 20px;
+    cursor: pointer;
+}
+.addphotoform-button{
+    @include mediumFont;
+    width: 85%;
+    height: 64px;
+    color: $white_a;
+    background-color: $black_a;
+    border-radius: $border-radius_a;
+    box-sizing: border-box;
+    margin-top: 20px;
+    cursor: pointer;
+}
+@media screen and (max-width: 1000px) {
+    .addphotoform, .addphotoform-bcg{
+        width: 400px;
+        height: 340px;
+    }
+    .addphotoform-header-row {
+        font-size: 20px;
+    }
+    .addphotoform-header, .addphotoform-closer{
+        margin: 25px 30px 10px;
+    }
+    .addphotoform-input-ico{
+        font-size: 20px;
+        margin: 20px 0 0;
+    }
+    .addphotoform-input-wraper {
+        height: 170px;
+    }
+    .addphotoform-wrapper-header{
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+    .addphotoform-wrapper-postheader,
+    .addphotoform-wrapper-selected-photo{
+        font-size: 14px;
+    }
+    .addphotoform-wrapper-button{
+        margin: 10px;
+        width: 130px;
+        height: 30px;
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .addphotoform{
+        width: 100%;
+        height: 320px;
+        min-width: 300px;
+    }    
+    .addphotoform-bcg{
+        width: 90%;
+        height: 320px;
+        min-width: 300px;
+    }
+    .addphotoform-header-row {
+        font-size: 18px;
+    }
+    .addphotoform-header, 
+    .addphotoform-closer{
+        margin: 25px 25px 10px;
+    }
+    .addphotoform-input-ico{
+        font-size: 18px;
+        margin: 25px 0 0;
+    }
+    .addphotoform-input-wraper {
+        height: 160px;
+    }
+    .addphotoform-wrapper-header{
+        margin-bottom: 5px;
+        font-size: 12px;
+    }
+    .addphotoform-wrapper-postheader,
+    .addphotoform-wrapper-selected-photo{
+        font-size: 12px;
+    }
+    .addphotoform-wrapper-button{
+        margin: 10px;
+        width: 110px;
+        font-size: 12px;
+    }
+    .addphotoform-button{
+        height: 50px;
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 305px) {
+    .addphotoform{
+        width: 90%;
+        min-width: 270px;
+    }
+} 
+@media screen and (max-height: 280px) {
+    .addphotoform{
+        height: 90vh;
+    }
+    .addphotoform-header-row {
+        font-size: 18px;
+    }
+    .addphotoform-header, 
+    .addphotoform-closer{
+        margin: 15px 30px 10px;
+    }
+    .addphotoform-input-ico{
+        font-size: 18px;
+        margin: 5px 0 0;
+    }
+    .addphotoform-input-wraper {
+        height: 135px;
+    }
+    .addphotoform-wrapper-header{
+        font-size: 12px;
+    }
+    .addphotoform-wrapper-postheader,
+    .addphotoform-wrapper-selected-photo{
+        font-size: 12px;
+    }
+    .addphotoform-wrapper-button{
+        margin: 10px;
+        width: 110px;
+        font-size: 12px;
+    }
+    .addphotoform-button{
+        height: 40px;
+        font-size: 14px;
+        margin: 10px 0;
+    }
+}  

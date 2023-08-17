@@ -1,0 +1,54 @@
+{
+    "galleries": [
+    {
+    "path": "People",
+    "image": {
+    "path": "people.jpg",
+    "fullpath": "People/people.jpg",
+    "name": "people",
+    "modified": "2023-06-29T11:03:46.0+0200"
+    },
+    "name": "People"
+    },
+    {
+    "path": "Architecture",
+    "image": {
+    "path": "architecture.jpg",
+    "fullpath": "Architecture/architecture.jpg",
+    "name": "architecture",
+    "modified": "2023-06-29T11:04:58.0+0200"
+    },
+    "name": "Architecture"
+    },
+    {
+    "path": "Music",
+    "image": {
+    "path": "music.jpg",
+    "fullpath": "Music/music.jpg",
+    "name": "music",
+    "modified": "2023-06-29T11:00:22.0+0200"
+    },
+    "name": "Music"
+    },
+    {
+    "path": "Nature",
+    "image": {
+    "path": "nature6.jpg",
+    "fullpath": "Nature/nature6.jpg",
+    "name": "nature6",
+    "modified": "2023-06-29T11:01:48.0+0200"
+    },
+    "name": "Nature"
+    },
+    {
+    "path": "Cars",
+    "image": {
+    "path": "auto2.jpg",
+    "fullpath": "Cars/auto2.jpg",
+    "name": "auto2",
+    "modified": "2023-06-29T11:00:50.0+0200"
+    },
+    "name": "Cars"
+    }
+    ]
+    }

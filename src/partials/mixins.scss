@@ -1,0 +1,86 @@
+@import "@fontsource/barlow";
+
+@mixin biggestFont{
+    font-family: "Barlow";
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+@mixin bigerFont{
+    font-family: "Barlow";
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+@mixin bigFont{
+    font-family: "Barlow";
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+@mixin mediumFont{
+    font-family: "Barlow";
+    font-size: 16px;
+    font-weight: 600;
+}
+@mixin smallFont{
+    font-family: "Barlow";
+    font-size: 12px;
+    font-weight: 300;
+}
+@mixin icoFont{
+    font-size: 24px;
+}
+@mixin lightbarFont{
+    font-size: 20px;
+}
+
+/*Animation*/
+@mixin fade-in-slow{
+    animation-name: fadeInOpacity1;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1.2s;
+
+    @keyframes fadeInOpacity1 {
+	0% {
+		opacity: 0;
+	}
+    60%{
+        opacity: .3;
+    }
+	100% {
+		opacity: 1;
+	}
+}
+}
+@mixin fade-in-fast{
+    animation-name: fadeInOpacity2;
+	animation-iteration-count: 1;
+	animation-timing-function:ease-in;
+	animation-duration: .5s;
+
+    @keyframes fadeInOpacity2 {
+    0%{
+        opacity: 0;
+    }
+	100% {
+		opacity: 1;
+	}
+}
+}
+@mixin fade-in-loader{
+    animation-name: fadeInOpacity3;
+	animation-iteration-count: 1;
+	animation-timing-function:ease-in;
+	animation-duration: .7s;
+
+    @keyframes fadeInOpacity3 {
+	0% {
+		opacity: .4;
+	}
+    50%{
+        opacity: 1;
+    }
+}
+}
