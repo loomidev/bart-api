@@ -1,34 +1,42 @@
 import './NewCategoryForm.scss'
-//import { projectFirestore } from '../firebase/config'
-import useFetch from '../hooks/useFetch'
 import { useState } from 'react'
 import { IoCloseOutline } from "react-icons/io5";
 
 const NewCategoryForm = ({setForm}) => {
     const [error, setError] = useState(false)
     const [categoryTitle, setCategoryTitle] = useState('')
+    const url = 'https://api.programator.sk/gallery/'
 
-    const submitForm =  (event) => {
+    const submitForm = async (event) => {
         event.preventDefault()
-        console.log('submitol si ');
-
-        /*
+        
         if (categoryTitle) {
-            let newCategory = {title: categoryTitle}
+            let newCategory = {
+                'path': categoryTitle,
+                'name': categoryTitle
+            }
 
             try {
-                await projectFirestore.collection('categories').add(newCategory)
-                setCategoryTitle('')
-                setError(false)
-                setForm(false)
-            }
-            catch (err) {
-                setError('Kategória nebola pridaná' + err.message)
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newCategory)
+                })
+
+                if (response.ok) {
+                    setCategoryTitle('')
+                    setError(false)
+                    setForm(false)
+                    console.log('data boli pridané');
+                  } else {
+                    console.log(error);
+                  }
+                } catch (error) {
+                    console.log(error);
+                }
             }
         }
-        */
-    }
-
+    
     document.addEventListener('keydown', evt => {
         if (evt.key === 'Escape') {
             setForm(false);

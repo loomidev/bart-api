@@ -7,15 +7,16 @@ import NewCategoryIco from '../components/NewCategoryIco'
 import useFetch from '../hooks/useFetch';
 
 import Loader from '../components/Loader';
+import ImageCounter from '../components/ImageCounter';
 
 const HomePage = () => {
   const [form, setForm] = useState(false)
+
   
   const url = 'https://api.programator.sk/gallery'
   const urlImages = 'http://api.programator.sk/images'
   const {data, loading,  error} = useFetch(url)
-
-
+   
 
   return (
       <>
@@ -37,27 +38,11 @@ const HomePage = () => {
                         let url = path.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "")
                         
 
-                        // počet jednotlivých položiek v kategórii
-                        /*
-                        let count = data.filter((oneElement) => {
-                            return oneElement.category === title;
-                        }).length 
-                        
-                        let formatWord = ''
-
-                        if (count===0 || count > 4) {
-                            formatWord = 'fotiek'
-                        }
-                        else if (count === 1) {
-                            formatWord = 'fotka'
-                        }
-                        else {
-                            formatWord = 'fotky'
-                        }
-                        */
                         return(
                             <Link key={path+'-'+image.modified} to={url} className='homepage-img-wrap'>
-                                <div className='homepage-count-images'>počet fotiek</div>
+                                <div className='homepage-count-images'>
+                                    <ImageCounter path={path}/>
+                                </div>
                                 <img src={imgUrl} alt='folder'/>
                                 <div className='homepage-folder-title'>{path}</div>
                             </Link>

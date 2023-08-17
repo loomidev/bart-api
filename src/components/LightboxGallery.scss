@@ -47,6 +47,10 @@
   padding: 20px;
   cursor: pointer;
 }
+.lightbox-closer:hover{
+  background-color: $black_c;
+  transition: .5s ease-in-out;
+}
 .lightbox-turn-device-ico{
   display: none;
 }
@@ -73,6 +77,11 @@
   box-shadow: $box-shadow_a;
   padding: 20px;
   cursor: pointer;
+}
+.lightbox-arrows:hover  {
+  background-color: $white_c;
+  transition: .5s ease-in-out;
+  opacity: .6;
 }
 .left{
   margin-left: -30px;

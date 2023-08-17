@@ -6,17 +6,13 @@ import moment from 'moment-timezone';
 
 const AddPhotoForm = ({form,setForm}) => {
   const [selected, setSelected] = useState('')
-  const [file, setFile] = useState('')
   const [error, setError] = useState(null)
   const types = ['image/png', 'image/jpeg', 'image/jpg']
-
   const currentCategory = useContext(TitleContext)
   const url = 'https://api.programator.sk/gallery/'
 
-
   const selecting = (event) => {
     let selectFile = event.target.files[0]
-
     if (selectFile && types.includes(selectFile.type)) {
       setSelected(selectFile)
       setError('')
@@ -47,7 +43,6 @@ const AddPhotoForm = ({form,setForm}) => {
       }]
     }
 
-
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -64,7 +59,6 @@ const AddPhotoForm = ({form,setForm}) => {
         console.log(error);
     }
     setSelected('')
-  
   }
   
   document.addEventListener('keydown', evt => {
@@ -96,7 +90,6 @@ const AddPhotoForm = ({form,setForm}) => {
               onChange={selecting}
               id='fileselector'
               hidden/>
-
             <button 
               className='addphotoform-wrapper-button'
               onClick={hidenButtonClick}>Vyberte súbory

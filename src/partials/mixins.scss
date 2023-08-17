@@ -54,11 +54,26 @@
 	}
 }
 }
+@mixin fade-in-medium{
+    animation-name: fadeInOpacity2;
+	animation-iteration-count: 1;
+	animation-timing-function:ease-in;
+	animation-duration: .2s;
+
+    @keyframes fadeInOpacity2 {
+    0%{
+        opacity: .4;
+    }
+	100% {
+		opacity: 1;
+	}
+}
+}
 @mixin fade-in-fast{
     animation-name: fadeInOpacity2;
 	animation-iteration-count: 1;
 	animation-timing-function:ease-in;
-	animation-duration: .5s;
+	animation-duration: .6s;
 
     @keyframes fadeInOpacity2 {
     0%{

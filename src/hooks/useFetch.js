@@ -12,7 +12,6 @@ const useFetch = (url) => {
         setTimeout(()=>{
             fetch(url, {signal: abortCont.signal})
             .then(res => {
-                console.log(res);
                 if(!res.ok){
                     throw Error('Nepodarilo sa načítať data')
                 }
@@ -28,7 +27,7 @@ const useFetch = (url) => {
                 setData(null)
                 setError(error.message);
             })
-        },2000)
+        },1000)
         return () => abortCont.abort()
     },[url]);
 
