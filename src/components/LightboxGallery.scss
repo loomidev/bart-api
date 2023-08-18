@@ -1,0 +1,140 @@
+@import '../partials/variables.scss';
+@import '../partials/mixins.scss';
+.lightbox-wrap{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.lightbox-backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $black_c;
+  z-index: 0 ;
+}
+.lightbox-backdrop img{
+  display: block;
+  margin: 0 auto;
+  box-shadow: $box-shadow_a;
+}
+.lightbox{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: $border-radius_b;
+  z-index: 2;
+  @include fade-in-slow
+}
+.lightbox-header{
+  text-align: right; 
+}
+.lightbox-closer{
+  @include lightbarFont;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: $white_a;
+  background-color: $black_a;
+  box-shadow:$box-shadow_a;
+  border-radius: 50%;
+  padding: 20px;
+  cursor: pointer;
+}
+.lightbox-turn-device-ico{
+  display: none;
+}
+.lightbox-gallery-image{
+  object-fit: contain;
+  max-height: 80vh;
+  border-radius: $border-radius_b;
+}
+.lightbox-arrows-row{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  justify-content:space-between;
+}
+.lightbox-arrows  {
+  @include lightbarFont;
+  color: $black_a;
+  background-color: $white_a;
+  border-radius: 50%;
+  box-shadow: $box-shadow_a;
+  padding: 20px;
+  cursor: pointer;
+}
+.lightbox-arrows:hover, 
+.lightbox-closer:hover {
+  opacity: .7;
+  transition: .4s ease-in-out;
+}
+.left{
+  margin-left: -30px;
+}
+.right{
+  margin-right: -30px;
+}
+@media screen and (min-width: 1300px){
+  .lightbox-gallery-image{
+    max-width: 1250px;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .lightbox-gallery-image{
+    max-width: 70vw;
+  }
+  .lightbox-closer{
+    top: 10px;
+    right: 10px;
+    padding: 15px;
+  }
+  .lightbox-arrows  {
+    padding: 15px;
+  }
+  .left{
+    margin-left: -25px;
+  }
+  .right{
+    margin-right: -25px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .lightbox-gallery-image{
+    max-width: 80vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  .lightbox-gallery-image{
+    max-width: 85vw;
+  }
+  .lightbox-closer{
+    right: 10px;
+    top: 10px;
+    font-size: 15px;
+    padding: 10px;
+  }
+  .lightbox-arrows  {
+    font-size: 15px;
+    padding: 10px;
+  }
+  .left{
+    margin-left: -15px;
+  }
+  .right{
+    margin-right: -15px;
+  }
+}
+@media screen and (max-width: 305px) {
+  .lightbox-gallery-image{
+    max-width: 85vw;
+  }
+}
+

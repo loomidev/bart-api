@@ -1,0 +1,62 @@
+@import '../partials/variables.scss';
+@import '../partials/mixins.scss';
+
+.imagesgrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  margin: 10px auto;
+  @include fade-in-slow
+}
+.imagesgrid-error-wrap{
+  @include mediumFont;
+  height: 295px;
+  width: 304px;
+  position: relative;
+  background-color: $white_a;
+  box-shadow: $box-shadow_a;
+  border-radius: $border-radius_a;
+  overflow: hidden;
+  text-align: center;
+}
+.imagesgrid-error-ico{
+  @include icoFont;
+  color: $black_a;
+  margin: 110px auto 8px;
+  opacity: .4;
+}
+.imagesgrid-img-wrap {
+  height: 295px;
+  width: 304px;
+  overflow: hidden;
+  position: relative;
+  border-radius: $border-radius_a;
+  box-shadow: $box-shadow_a;
+  cursor: pointer;
+}
+.imagesgrid-img-wrap img{
+  object-fit: cover;
+  width: 100% ;
+  height: 100%;
+}
+@media screen and (max-width: 1300px) {
+  .imagesgrid{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 997px) {
+  .imagesgrid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 680px) {
+  .imagesgrid{
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 320px) {
+  .imagesgrid-img-wrap{
+    width: 95vw;
+    margin: auto;
+  }
+}
