@@ -3,13 +3,14 @@ import { useState, useContext  } from "react"
 import { IoCloseOutline,IoImageOutline } from "react-icons/io5";
 import TitleContext from '../components/TitleContext'
 import moment from 'moment-timezone';
+import urlApi from '../Constants';
 
 const AddPhotoForm = ({setForm}) => {
   const [selected, setSelected] = useState('')
   const [error, setError] = useState(null)
   const types = ['image/png', 'image/jpeg', 'image/jpg']
   const currentCategory = useContext(TitleContext)
-  const url = 'https://api.programator.sk/gallery/'
+  const url = urlApi+'gallery/'
 
   const selecting = (event) => {
     let selectFile = event.target.files[0]

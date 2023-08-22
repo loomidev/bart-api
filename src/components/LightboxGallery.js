@@ -1,12 +1,13 @@
 import './LightboxGallery.scss'
 import { useState, useEffect} from "react";
 import { IoCloseSharp, IoArrowBackOutline, IoArrowForwardOutline } from "react-icons/io5";
+import urlApi from '../Constants';
 
 const LightboxGallery = ({setLightbox, data, clickedImg}) => {
 
     let [clickedImgIndex, setClickedIndex] = useState()
     let [categoryUrls, setCategoryUrls] = useState([])
-    const urlImages = 'http://api.programator.sk/images'
+    const urlImages = urlApi+'images'
     const width = 1212;
     const height = 909;
   
@@ -27,8 +28,7 @@ const LightboxGallery = ({setLightbox, data, clickedImg}) => {
         setCategoryUrls(urlsResult)
         setClickedIndex(clickedImgIndex);
 
-    }, [data, clickedImg])
-
+    }, [data, urlImages,clickedImg])
 
     const rigthArrowhandler = () => {
         if (clickedImgIndex < categoryUrls.length-1) {
@@ -62,7 +62,6 @@ const LightboxGallery = ({setLightbox, data, clickedImg}) => {
         }
     });
  
-
     return (
         <div className='lightbox-wrap'>
             <div className="lightbox-backdrop" onClick={() => setLightbox(false)}></div>

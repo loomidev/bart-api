@@ -8,11 +8,12 @@ import useFetch from '../hooks/useFetch';
 
 import Loader from '../components/Loader';
 import ImageCounter from '../components/ImageCounter';
+import urlApi from '../Constants';
 
 const HomePage = () => {
   const [form, setForm] = useState(false)
-  const url = 'https://api.programator.sk/gallery'
-  const urlImages = 'http://api.programator.sk/images'
+  const url = urlApi+'gallery'
+  const urlImages = urlApi+'images'
   const {data, loading,  error} = useFetch(url)
 
   return (

@@ -1,11 +1,12 @@
 import './NewCategoryForm.scss'
 import { useState } from 'react'
 import { IoCloseOutline } from "react-icons/io5";
+import urlApi from '../Constants';
 
 const NewCategoryForm = ({setForm}) => {
     const [error, setError] = useState(false)
     const [categoryTitle, setCategoryTitle] = useState('')
-    const url = 'https://api.programator.sk/gallery/'
+    const url = urlApi+'gallery/'
 
     const submitForm = async (event) => {
         event.preventDefault()     

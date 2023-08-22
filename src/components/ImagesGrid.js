@@ -6,13 +6,14 @@ import TitleContext from '../components/TitleContext'
 import LightboxGallery from './LightboxGallery'
 import AddPhotoIco from './AddPhotoIco'
 import Loader from './Loader';
+import urlApi from '../Constants';
  
 const ImagesGrid = ({setForm}) => {
   const currentCategory = useContext(TitleContext)
   const [lightbox, setLightBox] = useState(false)
   const [clickedImg, setClickedImg] = useState(null)
-  const url = 'http://api.programator.sk/gallery/'+currentCategory
-  const urlImages = 'http://api.programator.sk/images'
+  const url = urlApi+'gallery/'+currentCategory
+  const urlImages = urlApi+'images'
   const {data, loading,  error} = useFetch(url)
 
   const handelClick = (fullpath) => {

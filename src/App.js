@@ -4,10 +4,11 @@ import useFetch from './hooks/useFetch'
 import HomePage from './pages/HomePage'
 import PageLayout from './pages/PageLayout'
 import './App.scss'
+import urlApi from './Constants'
 
 const App = () => {
 
-  const url = 'http://api.programator.sk/gallery'
+  const url = urlApi+'gallery'
   const {data} = useFetch(url)
 
   return (
