@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.52da1a0e.css",
+    "main.js": "/static/js/main.82fe869b.js",
+    "static/js/787.c09832c0.chunk.js": "/static/js/787.c09832c0.chunk.js",
+    "static/media/loading.gif": "/static/media/loading.45df2d82dca079e9214f.gif",
+    "static/media/barlow-latin-400-normal.woff2": "/static/media/barlow-latin-400-normal.7fa387951673abf164b1.woff2",
+    "static/media/barlow-latin-400-normal.woff": "/static/media/barlow-latin-400-normal.c5f3640b11df9414facb.woff",
+    "static/media/barlow-latin-ext-400-normal.woff2": "/static/media/barlow-latin-ext-400-normal.da26d162ff5af71d6590.woff2",
+    "static/media/barlow-latin-ext-400-normal.woff": "/static/media/barlow-latin-ext-400-normal.47d566c3b1293dfd9d77.woff",
+    "static/media/barlow-vietnamese-400-normal.woff2": "/static/media/barlow-vietnamese-400-normal.7e78e8338af7efeda712.woff2",
+    "static/media/barlow-vietnamese-400-normal.woff": "/static/media/barlow-vietnamese-400-normal.2d6836f45b2037be41f3.woff",
+    "index.html": "/index.html",
+    "main.52da1a0e.css.map": "/static/css/main.52da1a0e.css.map",
+    "main.82fe869b.js.map": "/static/js/main.82fe869b.js.map",
+    "787.c09832c0.chunk.js.map": "/static/js/787.c09832c0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52da1a0e.css",
+    "static/js/main.82fe869b.js"
+  ]
+}
