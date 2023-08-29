@@ -1,15 +1,18 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import TitleContext from './components/TitleContext'
-import useFetch from './hooks/useFetch'
-import HomePage from './pages/HomePage'
-import PageLayout from './pages/PageLayout'
-import './App.scss'
-import urlApi from './Constants'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+import TitleContext from './components/TitleContext';
+import useFetch from './hooks/useFetch';
+import HomePage from './pages/HomePage';
+import PageLayout from './pages/PageLayout';
+import NotFoundPage from './pages/NotFoundPage';
+import './App.scss';
+import urlApi from './Constants';
 
 const App = () => {
 
-  const url = urlApi+'gallery'
-  const {data} = useFetch(url)
+  const url = urlApi+'gallery';
+  const [dataChange, setDataChange] = useState(false);
+  const {data} = useFetch(url, dataChange);
 
   return (
     <div className ='app'>
@@ -18,22 +21,30 @@ const App = () => {
         <Routes>
           <Route 
             path='/'
-            element={<HomePage/>}
+            element={
+              <HomePage
+                setDataChange={setDataChange}
+                dataChange={dataChange}
+              />}
           />
           {data && data.galleries.map((oneElement) => {
-            const {path,image} = oneElement
+            const {path} = oneElement
             return(
-                <Route 
-                  key={image.modified} 
-                  path={path} 
-                  element={
+              <Route 
+                key={path} 
+                path={path} 
+                element={
                   <TitleContext.Provider value={path}>
                     <PageLayout title={path}/>
                   </TitleContext.Provider>
-                  }
-                />
+                }
+              />
             )
           })}
+          <Route 
+            path='*'
+            element={<NotFoundPage/>}
+          />
         </Routes>
       </BrowserRouter>
     </div>

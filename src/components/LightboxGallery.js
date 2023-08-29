@@ -1,52 +1,53 @@
-import './LightboxGallery.scss'
+import './LightboxGallery.scss';
+import urlApi from '../Constants';
 import { useState, useEffect} from "react";
 import { IoCloseSharp, IoArrowBackOutline, IoArrowForwardOutline } from "react-icons/io5";
-import urlApi from '../Constants';
 
-const LightboxGallery = ({setLightbox, data, clickedImg}) => {
+const LightboxGallery = ({ setLightbox, data, clickedImg }) => {
 
-    let [clickedImgIndex, setClickedIndex] = useState()
-    let [categoryUrls, setCategoryUrls] = useState([])
-    const urlImages = urlApi+'images'
+    const urlImages = urlApi+'images';
     const width = 1212;
     const height = 909;
-  
+    let [categoryUrls, setCategoryUrls] = useState([]); 
+    let [clickedImgIndex, setClickedIndex] = useState(null);
+
     useEffect(() => {
-        let result = []
-        let urlsResult = []
+        let result = []; //všetky fullpath
+        let urlsResult = []; //všetky url 
         
         data.images.forEach(element => {
-            const {fullpath} = element
-            const imgUrl = urlImages+'/'+width+'x'+height+'/'+fullpath
+            const {fullpath} = element;
+            const imgUrl = urlImages+'/'+width+'x'+height+'/'+fullpath;
       
             result.push(fullpath);
-            urlsResult.push(imgUrl)
+            urlsResult.push(imgUrl);
         });
 
-        let clickedImgIndex = result.indexOf(clickedImg)
+        let clickedImgIndex = result.indexOf(clickedImg); // zistím ktorý v poradí je kliknutý obrázok 
+                                                          //všetky fullpath porovnam s clickedImg(co je fullpath)
 
-        setCategoryUrls(urlsResult)
-        setClickedIndex(clickedImgIndex);
+        setCategoryUrls(urlsResult); //všetky url dostavam von
+        setClickedIndex(clickedImgIndex); //index kliknutého obrázka dostávam von
 
-    }, [data, urlImages,clickedImg])
+    }, [data, urlImages,clickedImg]);
 
     const rigthArrowhandler = () => {
         if (clickedImgIndex < categoryUrls.length-1) {
             setClickedIndex(
                 clickedImgIndex + 1
-            )
+            );
         }
         else {
-            setClickedIndex(0)
+            setClickedIndex(0);
         }
     }
 
     const lefthArrowhandler = () => {
         if (clickedImgIndex > 0 ) {
-            setClickedIndex(clickedImgIndex - 1)
+            setClickedIndex(clickedImgIndex - 1);
         }
         else {
-            setClickedIndex(categoryUrls.length-1)
+            setClickedIndex(categoryUrls.length-1);
         }
     }
 
@@ -55,13 +56,13 @@ const LightboxGallery = ({setLightbox, data, clickedImg}) => {
             setLightbox(false);
         }
         if(evt.key === 'ArrowRight'){
-            rigthArrowhandler()
+            rigthArrowhandler();
         }
         if(evt.key === 'ArrowLeft'){
-            lefthArrowhandler()
+            lefthArrowhandler();
         }
-    });
- 
+    }); 
+    
     return (
         <div className='lightbox-wrap'>
             <div className="lightbox-backdrop" onClick={() => setLightbox(false)}></div>
@@ -72,8 +73,8 @@ const LightboxGallery = ({setLightbox, data, clickedImg}) => {
                     </div>
                 </div>
                 <div className="lightbox-gallery">
-                    <img 
-                        src={categoryUrls[clickedImgIndex]} 
+                    <img
+                        src={categoryUrls[clickedImgIndex]} // cez index mi zobrazí daný obrázok z poľa
                         alt="lightboximg" 
                         className='lightbox-gallery-image'
                         id='lightbox-img'

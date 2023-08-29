@@ -1,5 +1,6 @@
 @import '../partials/variables.scss';
 @import '../partials/mixins.scss';
+
 .lightbox-wrap{
   position: fixed;
   top: 0;
@@ -44,6 +45,7 @@
   border-radius: 50%;
   padding: 20px;
   cursor: pointer;
+  z-index: 10;
 }
 .lightbox-turn-device-ico{
   display: none;
@@ -52,6 +54,7 @@
   object-fit: contain;
   max-height: 80vh;
   border-radius: $border-radius_b;
+  opacity: 1;
 }
 .lightbox-arrows-row{
   position: absolute;
@@ -82,6 +85,7 @@
 .right{
   margin-right: -30px;
 }
+
 @media screen and (min-width: 1300px){
   .lightbox-gallery-image{
     max-width: 1250px;
@@ -130,6 +134,9 @@
   }
   .right{
     margin-right: -15px;
+  }
+  .lightbox-filter-row *{
+    font-size: 30px;
   }
 }
 @media screen and (max-width: 305px) {

@@ -1,32 +1,32 @@
-import './ImagesGrid.scss'
-import { useState, useContext } from 'react'
+import './ImagesGrid.scss';
+import { useState, useContext } from 'react';
 import { MdOutlineFolderOff } from "react-icons/md";
-import useFetch from '../hooks/useFetch'
-import TitleContext from '../components/TitleContext'
-import LightboxGallery from './LightboxGallery'
-import AddPhotoIco from './AddPhotoIco'
+import useFetch from '../hooks/useFetch';
+import TitleContext from '../components/TitleContext';
+import LightboxGallery from './LightboxGallery';
+import AddPhotoIco from './AddPhotoIco';
 import Loader from './Loader';
 import urlApi from '../Constants';
  
-const ImagesGrid = ({setForm}) => {
-  const currentCategory = useContext(TitleContext)
-  const [lightbox, setLightBox] = useState(false)
-  const [clickedImg, setClickedImg] = useState(null)
-  const url = urlApi+'gallery/'+currentCategory
-  const urlImages = urlApi+'images'
-  const {data, loading,  error} = useFetch(url)
+const ImagesGrid = ({ setForm, dataChange }) => {
+  const currentCategory = useContext(TitleContext);
+  const url = urlApi+'gallery/'+currentCategory;
+  const urlImages = urlApi+'images';
+  const {data, loading, error} = useFetch(url, dataChange);
+  const [clickedImg, setClickedImg] = useState(null);
+  const [lightbox, setLightBox] = useState(false);
 
   const handelClick = (fullpath) => {
-    setClickedImg(fullpath)
-    setLightBox(true)
+    setClickedImg(fullpath);
+    setLightBox(true);
   }
-
+ 
   return (
         <>
           {loading && <Loader/>}
           {data && <div className='imagesgrid'>
               {data.images.map((element) => {
-                  const {fullpath,modified} = element
+                  const {fullpath} = element
             
                   const width = 304;
                   const height = 295;
@@ -34,8 +34,8 @@ const ImagesGrid = ({setForm}) => {
                   const imgUrl = urlImages+'/'+width+'x'+height+'/'+fullpath
                   
                   return(
-                      <div key={fullpath+'-'+modified} 
-                          className='imagesgrid-img-wrap' >
+                      <div key={fullpath} 
+                           className='imagesgrid-img-wrap'>
                           <img 
                             src={imgUrl} 
                             alt='pics'
@@ -50,14 +50,16 @@ const ImagesGrid = ({setForm}) => {
                 <div className='imagesgrid-error-text'>{error}</div>
               </div>
             }
-              <AddPhotoIco setForm={setForm}/>
-              {lightbox && <LightboxGallery 
-                  setLightbox={setLightBox}
-                  clickedImg={clickedImg}
-                  data={data}
-                  loading={loading}
-                />
-              }
+            <AddPhotoIco 
+              setForm={setForm}
+            />
+            {lightbox && <LightboxGallery 
+                            setLightbox={setLightBox}
+                            clickedImg={clickedImg}
+                            data={data}
+                            loading='lazy'
+                          />
+            }
           </div>}
         </>
   )

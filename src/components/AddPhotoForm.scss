@@ -39,7 +39,7 @@
     border-radius: $border-radius_b;
     box-shadow: $box-shadow_a;
     text-align: center;
-    @include fade-in-medium
+    @include fade-in-medium;
 }
 .addphotoform-header-row{
     @include bigerFont;
@@ -105,6 +105,7 @@
   transition: .4s ease-in-out;
   border-color: rgba(53, 53, 53, 0.877);
 }
+
 @media screen and (max-width: 1000px) {
     .addphotoform, .addphotoform-bcg{
         width: 400px;

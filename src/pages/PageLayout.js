@@ -1,13 +1,14 @@
-import './PageLayout.scss'
+import './PageLayout.scss';
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { IoArrowBackOutline } from "react-icons/io5";
 import ImagesGrid from "../components/ImagesGrid";
 import AddPhotoForm from "../components/AddPhotoForm";
 
-const PageLayout = ({title}) => {
+const PageLayout = ({ title }) => {
 
-  let [form, setForm] = useState(false)
+  let [form, setForm] = useState(false);
+  let [dataChange, setDataChange] = useState(false);
 
   return (
     <>
@@ -18,9 +19,19 @@ const PageLayout = ({title}) => {
         </Link>
       </h3>
       <div>
-        <ImagesGrid setForm={setForm}/>
+        <ImagesGrid 
+          setForm={setForm}
+          dataChange={dataChange}
+        />
       </div>
-      {form && <AddPhotoForm form={form} setForm={setForm} title={title}/>}
+      {form && <AddPhotoForm 
+                  form={form} 
+                  setForm={setForm} 
+                  title={title}
+                  dataChange={dataChange}
+                  setDataChange={setDataChange}
+                />
+      }
     </>
   )
 }

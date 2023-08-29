@@ -1,7 +1,7 @@
-import './NewCategoryIco.scss'
+import './NewCategoryIco.scss';
 import { FaRegPlusSquare } from "react-icons/fa";
 
-const NewCategoryIco = ({setForm}) => {
+const NewCategoryIco = ({ setForm }) => {
   return (
     <div 
     onClick={() => setForm(true)}

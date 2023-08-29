@@ -1,0 +1,87 @@
+@import '../partials/variables.scss';
+@import '../partials/mixins.scss';
+
+.deleteform-wrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.deleteform-backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $black_c;
+}
+.deleteform{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 560px;
+    height: 250px;
+    background-color: $white_a;
+    border-radius: $border-radius_b;
+    box-shadow: $box-shadow_a;
+    text-align: center;
+    @include fade-in-medium;
+}
+.deleteform-header{
+    @include bigerFont;
+    margin-top: 65px;
+}
+.deleteform-row{
+    position: absolute;
+    top: 65%;
+    width: 100%;
+    transform: translate(0, -50%); 
+}
+.deleteform-wrapper-button{
+    @include mediumFont;
+    width: 170px;
+    height: 48px;
+    color: $white_a;
+    background-color: $black_a;
+    border: 2px solid $black_a;
+    border-radius: $border-radius_a;
+    margin: 20px;
+    cursor: pointer;
+}
+.deleteform-wrapper-button:hover{
+    opacity: .8;
+    transition: .4s ease-in;
+}
+
+@media screen and (max-width: 800px) {
+    .deleteform-wrapper-button{
+        width: 150px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .deleteform{
+        width: 90%;
+    }
+    .deleteform-wrapper-button{
+        width: 120px;
+        height: 40px;
+        margin: 5px;
+    }
+}
+@media screen and (max-width: 350px) {
+    .deleteform{
+        width: 90%;
+        height: 200px;
+    }
+    .deleteform-header{
+        @include bigFont;
+        margin-top: 65px;
+    }
+    .deleteform-wrapper-button{
+        width: 80px;
+        height: 30px;
+        margin: 5px;
+    }
+}

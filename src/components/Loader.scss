@@ -16,9 +16,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    @include fade-in-loader
+    @include fade-in-loader;
 }
-
 .loading{
     width: 400px;
     filter: grayscale(80);

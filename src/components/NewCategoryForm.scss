@@ -1,7 +1,6 @@
 @import '../partials/variables.scss';
 @import '../partials/mixins.scss';
 
-
 .newcategoryform-wrap{
     position: fixed;
     top: 0;
@@ -40,7 +39,7 @@
     text-align: center;
     border-radius: $border-radius_b;
     box-shadow: $box-shadow_a;
-    @include fade-in-medium
+    @include fade-in-medium;
 }
 .newcategoryform-header-row {
     @include bigerFont;
@@ -93,6 +92,7 @@
     transition: .4s ease-in-out;
     border-color: rgba(53, 53, 53, 0.877);
 }
+
 @media screen and (max-width: 1000px) {
     .newcategoryform,.newcategoryform-bcg{
         width: 400px;

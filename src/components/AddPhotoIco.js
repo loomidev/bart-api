@@ -1,7 +1,7 @@
-import './AddPhotoIco.scss'
+import './AddPhotoIco.scss';
 import { FaRegPlusSquare } from "react-icons/fa";
 
-const AddPhotoIco = ({setForm}) => {
+const AddPhotoIco = ({ setForm }) => {
   return (
     <div 
       onClick={() => setForm(true)}

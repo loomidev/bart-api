@@ -1,21 +1,21 @@
-import './ImageCounter.scss'
+import './ImageCounter.scss';
 import { useEffect, useState } from 'react';
 import useFetch from '../hooks/useFetch';
 import urlApi from '../Constants';
 
-const ImageCounter = ({path}) => {
-    const url = urlApi+'gallery'
-    let urls = url + '/' + path
-    const {data} = useFetch(urls)
-    const [count, setCount] = useState()
+const ImageCounter = ({ path }) => {
+    const url = urlApi+'gallery';
+    let urls = url + '/' + path;
+    const {data} = useFetch(urls);
+    const [count, setCount] = useState();
 
     useEffect(() => {
         if(data){
             setCount(data.images.length);
         }
-    }, [urls, data])
+    }, [urls, data]);
 
-    let formatWord = ''
+    let formatWord = '';
 
     if (count===0 || count > 4) {
         formatWord = ' fotiek'

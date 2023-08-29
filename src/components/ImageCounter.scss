@@ -2,5 +2,5 @@
 @import '../partials/mixins.scss';
 
 .image-counter{
-    @include fade-in-fast
+    @include fade-in-fast;
 }
