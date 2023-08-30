@@ -31,7 +31,7 @@ const ImagesGrid = ({ setForm, dataChange }) => {
                   const width = 304;
                   const height = 295;
                   
-                  const imgUrl = urlImages+'/'+width+'x'+height+'/'+fullpath
+                  const imgUrl = urlImages+'/'+width+'x'+height+'/'+fullpath;
                   
                   return(
                       <div key={fullpath} 
