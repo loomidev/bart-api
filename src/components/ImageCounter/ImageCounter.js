@@ -1,12 +1,12 @@
 import './ImageCounter.scss';
 import { useEffect, useState } from 'react';
-import useFetch from '../hooks/useFetch';
-import urlApi from '../Constants';
+import useFetchGet from '../../hooks/useFetchGet';
+import urlApi from '../../Constants';
 
 const ImageCounter = ({ path }) => {
-    const url = urlApi+'gallery';
-    let urls = url + '/' + path;
-    const {data} = useFetch(urls);
+    const url = `${urlApi}gallery`;
+    let urls = `${url}/${path}`;
+    const {data} = useFetchGet(urls);
     const [count, setCount] = useState();
 
     useEffect(() => {

@@ -1,5 +1,5 @@
 import './Loader.scss';
-import loading from '../img/loading.gif';
+import loading from '../../img/loading.gif';
 
 const Loader = () => {
   return (

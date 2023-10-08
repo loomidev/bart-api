@@ -2,8 +2,8 @@ import './PageLayout.scss';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoArrowBackOutline } from "react-icons/io5";
-import ImagesGrid from "../components/ImagesGrid";
-import AddPhotoForm from "../components/AddPhotoForm";
+import ImagesGrid from "../../components/ImagesGrid/ImagesGrid";
+import AddPhotoForm from "../../components/AddPhotoForm/AddPhotoForm";
 
 const PageLayout = ({ title }) => {
 

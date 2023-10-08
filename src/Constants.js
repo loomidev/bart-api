@@ -1,3 +1,3 @@
-const urlApi = "https://api.programator.sk/";
+const urlApi = "http://api.programator.sk/";
 
 export default urlApi

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 const useFetch = ( url, dataChange ) => {
-
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -11,6 +10,7 @@ const useFetch = ( url, dataChange ) => {
 
         fetch(url, {signal: abortCont.signal})
         .then(res => {
+
             if(!res.ok){
                 throw Error('Nepodarilo sa načítať data');
             }
@@ -26,11 +26,8 @@ const useFetch = ( url, dataChange ) => {
             setData(null);
             setError(error.message);
         })
-        
         return () => abortCont.abort()
-
     },[url,dataChange]);
-
   return {data, loading,  error}
 }
 

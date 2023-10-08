@@ -2,25 +2,25 @@ import './HomePage.scss';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MdOutlineFolderOff, MdDeleteForever } from "react-icons/md";
-import NewCategoryForm from "../components/NewCategoryForm";
-import NewCategoryIco from '../components/NewCategoryIco';
-import useFetch from '../hooks/useFetch';
-import Loader from '../components/Loader';
-import folder from '../img/folder.png';
-import ImageCounter from '../components/ImageCounter';
-import urlApi from '../Constants';
-import DeleteForm from '../components/DeleteForm';
+import NewCategoryForm from "../../components/NewCategoryForm/NewCategoryForm";
+import NewCategoryIco from '../../components/NewCategoryIco/NewCategoryIco';
+import useFetchGet from '../../hooks/useFetchGet';
+import folder from '../../img/folder.png';
+import ImageCounter from '../../components/ImageCounter/ImageCounter';
+import urlApi from '../../Constants';
+import DeleteForm from '../../components/DeleteForm/DeleteForm';
+import Loader from '../../components/Loader/Loader';
 
 const HomePage = ({ dataChange, setDataChange }) => {
   const [form, setForm] = useState(false);
   const [deleteForm, setDeleteForm] = useState(false);
   const [deletePath, setDeletePath] = useState(null);
-  const url = urlApi+"gallery";
-  const urlImages = urlApi+"images";
-  const {data, loading,  error} = useFetch(url, dataChange);
+  const url = `${urlApi}gallery`;
+  const urlImages = `${urlApi}images`;
+  const {data, loading,  error} = useFetchGet(url, dataChange);
 
   const selectDeleteFolder = (path) => {
-    const folderUrl = url+'/'+path;
+    const folderUrl = `${url}/${path}`;
     setDeleteForm(true);
     setDeletePath(folderUrl);
   }
@@ -41,7 +41,7 @@ const HomePage = ({ dataChange, setDataChange }) => {
                         let imgUrl = '';
                         
                         if(image){
-                            imgUrl = urlImages+'/'+width+'x'+height+'/'+image.fullpath;
+                            imgUrl = `${urlImages}/${width}x${height}/${image.fullpath}`;
                         }
                         else{
                             imgUrl=folder;
@@ -59,7 +59,7 @@ const HomePage = ({ dataChange, setDataChange }) => {
                                     <div className='homepage-count-images'>
                                         <ImageCounter path={path} />
                                     </div>    
-                                    <img src={imgUrl} alt='folder'/>
+                                    <img src={imgUrl} alt='folder' />
                                     <div className='homepage-folder-title'>{path}</div>
                                 </Link>
                             </div>

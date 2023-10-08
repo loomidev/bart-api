@@ -1,18 +1,18 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { useState } from 'react';
-import TitleContext from './components/TitleContext';
-import useFetch from './hooks/useFetch';
-import HomePage from './pages/HomePage';
-import PageLayout from './pages/PageLayout';
-import NotFoundPage from './pages/NotFoundPage';
+import TitleContext from './components/TitleContext/TitleContext';
+import useFetchGet from './hooks/useFetchGet';
+import HomePage from './pages/HomePage/HomePage';
+import PageLayout from './pages/PageLayout/PageLayout';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import './App.scss';
 import urlApi from './Constants';
 
 const App = () => {
 
-  const url = urlApi+'gallery';
+  const url = `${urlApi}gallery`;
   const [dataChange, setDataChange] = useState(false);
-  const {data} = useFetch(url, dataChange);
+  const {data} = useFetchGet(url, dataChange);
 
   return (
     <div className ='app'>
@@ -20,19 +20,15 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route 
+            element={<HomePage setDataChange={setDataChange} dataChange={dataChange}/>}
             path='/'
-            element={
-              <HomePage
-                setDataChange={setDataChange}
-                dataChange={dataChange}
-              />}
           />
-          {data && data.galleries.map((oneElement) => {
+          {data?.galleries.map((oneElement) => {
             const {path} = oneElement
             return(
               <Route 
                 key={path} 
-                path={path} 
+                path={path}
                 element={
                   <TitleContext.Provider value={path}>
                     <PageLayout title={path}/>
@@ -52,3 +48,4 @@ const App = () => {
 }
 
 export default App
+

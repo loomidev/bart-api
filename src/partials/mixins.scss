@@ -1,4 +1,4 @@
-@import "@fontsource/barlow";
+@use "@fontsource/barlow";
 
 @mixin biggestFont{
     font-family: "Barlow";
@@ -35,7 +35,7 @@
     font-size: 20px;
 }
 
-/*Animation*/
+/*Animations*/
 @mixin fade-in-slow{
     animation-name: fadeInOpacity1;
 	animation-iteration-count: 1;

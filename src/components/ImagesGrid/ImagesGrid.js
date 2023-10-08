@@ -1,18 +1,18 @@
 import './ImagesGrid.scss';
 import { useState, useContext } from 'react';
 import { MdOutlineFolderOff } from "react-icons/md";
-import useFetch from '../hooks/useFetch';
-import TitleContext from '../components/TitleContext';
-import LightboxGallery from './LightboxGallery';
-import AddPhotoIco from './AddPhotoIco';
-import Loader from './Loader';
-import urlApi from '../Constants';
+import useFetchGet from '../../hooks/useFetchGet';
+import TitleContext from '../TitleContext/TitleContext';
+import LightboxGallery from '../LightboxGallery/LightboxGallery';
+import AddPhotoIco from '../AddPhotoIco/AddPhotoIco';
+import Loader from '../Loader/Loader';
+import urlApi from '../../Constants';
  
 const ImagesGrid = ({ setForm, dataChange }) => {
   const currentCategory = useContext(TitleContext);
-  const url = urlApi+'gallery/'+currentCategory;
-  const urlImages = urlApi+'images';
-  const {data, loading, error} = useFetch(url, dataChange);
+  const url = `${urlApi}gallery/${currentCategory}`;
+  const urlImages = `${urlApi}images`;
+  const {data, loading, error} = useFetchGet(url, dataChange);
   const [clickedImg, setClickedImg] = useState(null);
   const [lightbox, setLightBox] = useState(false);
 
@@ -31,7 +31,7 @@ const ImagesGrid = ({ setForm, dataChange }) => {
                   const width = 304;
                   const height = 295;
                   
-                  const imgUrl = urlImages+'/'+width+'x'+height+'/'+fullpath;
+                  const imgUrl = `${urlImages}/${width}x${height}/${fullpath}`;
                   
                   return(
                       <div key={fullpath} 

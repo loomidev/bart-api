@@ -1,5 +1,5 @@
-@import '../partials/variables.scss';
-@import '../partials/mixins.scss';
+@use '../../partials/variables.scss' as *;
+@use '../../partials/mixins.scss' as *;
 
 .lightbox-wrap{
   position: fixed;
@@ -29,7 +29,6 @@
   transform: translate(-50%, -50%);
   border-radius: $border-radius_b;
   z-index: 2;
-  @include fade-in-slow
 }
 .lightbox-header{
   text-align: right; 
@@ -84,6 +83,11 @@
 }
 .right{
   margin-right: -30px;
+}
+.lightbox-loader-wrapper{
+  width: 100vw;
+  height: 100vh;
+  opacity: .9;
 }
 
 @media screen and (min-width: 1300px){
@@ -144,4 +148,3 @@
     max-width: 85vw;
   }
 }
-

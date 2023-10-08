@@ -1,7 +1,7 @@
-@import '../partials/variables.scss';
-@import '../partials/mixins.scss';
+@use '../../partials/variables.scss' as *;
+@use '../../partials/mixins.scss' as *;
 
-.newcategoryico{
+.addphotoico{
   height: 295px;
   width: 304px;
   background-color: $white_a;
@@ -10,19 +10,19 @@
   text-align: center;
   cursor: pointer;
 }
-.newcategoryico-plus-ico {
+.addphotoico-plus-ico{
   @include icoFont;
   padding-top: 110px;
   opacity: .4;
 }
-.newcategoryico-text{
+.addphotoico-text{
   @include mediumFont;
   padding-top: 10px;
 }
 
 @media screen and (max-width: 320px) {
-  .newcategoryico {
+  .addphotoico {
     width: 95vw;
     margin: auto;
   }
-}  
+}

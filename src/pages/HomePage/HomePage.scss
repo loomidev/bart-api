@@ -1,5 +1,5 @@
-@import '../partials/variables.scss';
-@import '../partials/mixins.scss';
+@use '../../partials/variables.scss' as *;
+@use '../../partials/mixins.scss' as *;
 
 .homepage-postheader{
   @include bigFont;
